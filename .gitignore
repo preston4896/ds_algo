@@ -1,0 +1,5 @@
+test_list
+*.o
+*.d
+.vscode
+.DS_STORE
