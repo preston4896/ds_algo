@@ -16,7 +16,7 @@ ifneq ($(V), 1)
 Q = @
 endif
 
-list:$(objs)
+test_list:$(objs)
 	$(Q)$(COMPILER) $(FLAGS) -o $@ $^
 	@echo "Code compiled succesfully. Ready to execute..."
 
@@ -24,5 +24,5 @@ list:$(objs)
 	$(Q)$(COMPILER) $(FLAGS) -c $< $(DEPFLAGS)
 
 clean: 
-	$(Q)rm -f list $(objs) $(deps)
+	$(Q)rm -f test_list $(objs) $(deps)
 	@echo "Cleaning complete."
