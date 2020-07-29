@@ -67,4 +67,11 @@ class List {
         void printList();
 };
 
+/**
+ * Destroys the list.
+ * @param inList - input list.
+ * @return -1 if list is invalid, otherwise 0.
+ */
+int destroy_list(list_ptr inList);
+
 #endif // LIST_H
