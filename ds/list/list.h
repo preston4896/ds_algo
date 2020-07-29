@@ -5,80 +5,66 @@
 using namespace std;
 
 /**
- * Node properties for the list. 
+ * A single node stores the value and pointers to its previous and next nodes. 
  */
-// template <class N>
-struct Node {
-    // value of T type stored in the node.
-    int val;
-    // next node.
-    Node* next;
-    // previous node.
-    Node* prev;
-    // initialize node.
-    Node(int input);
-    // destroy node
-    // ~Node();
-};
+typedef struct Node* node_ptr;
 
 /**
- * List Definition. 
- * Methods including create new list, destroy list, add, remove, edit and search values of T type in list.
- * @tparam T the type of data stored in the list.
-*/
-// template <class T>
+ * Nodes that are linked together forms a list, LIFO order. 
+ */
+typedef class List* list_ptr;
+
+/**
+ * Initializes the node.
+ * @param inVal input value.
+ * @param prev previous node.
+ * @return a new node.
+ */
+node_ptr init_node(int inVal, node_ptr prev);
+
+struct Node
+{
+    int val;
+    node_ptr prev;
+    node_ptr next;
+};
+
 class List {
     private:
-        // keeps track of the list size.
-        int count;
-        // first element of the list.
-        Node *head;
-        // last element of the list.
-        Node *end;
+        int count = -1;
+        node_ptr head;
+        node_ptr tail;
 
     public:
         /**
-         * Creates the list.
-         * @return -1 error if attempt to recreate an existing list, else return 0.
+         * Creates the list. 
+         * The constructor can only be called once, otherwise a warning message will be written to stderr.
          */
         List();
+
         /**
-         * Adds new value at the end of the list.
-         * @param input the input value of type specified by T.
-         * @return -1 error if the list is not created, else 0.
-        */
-        int push(int input);
+         * Inserts a node at the end of the list.
+         * @param inVal input value.
+         * @return -1 if the list does not exist, otherwise 0.
+         */
+        int push(int inVal);
+
         /**
-         * Removes the last value.
-         * @return -1 error if the list is empty, else 0.
+         * Removes the last node from the list.
+         * @return -1 if the list is empty or does not exist, otherwise 0.
          */
         int pop();
+
         /**
-         * Locates the value in the list.
-         * @param query input value to be searched.
-         * @return -1 error if the value is not found, else returns the index number (ranges o to size of list) 
-         */
-        int search(int query);
-        /**
-         * Size of list.
-         * @return -1 error if list is not created, else the number of nodes in list. 
+         * The total number of nodes in the list.
+         * @return -1 if the list does not exist, otherwise the size.
          */
         int size();
+
         /**
-         * Modify the value that is already stored in the list,
-         * @param index the location to be modified.
-         * @param newVal the new value to overwrite the stored value.
-         * @return -1 error if index is invalid or list is not created, else 0.
-         */
-        int changeVal(int index, int newVal);
-        /**
-         * Prints the entire list to stdout.
+         * Prints the entire list to stdout. If list does not exist or empty, send message to stderr. 
          */
         void printList();
-        /**
-         * Destroys the list. 
-         */
-        // ~List();
 };
 
 #endif // LIST_H
