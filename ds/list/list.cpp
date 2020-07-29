@@ -12,11 +12,10 @@ List :: List() {
     end = head;
 }
 
-
 int List :: push(int input) {
-    if (head == nullptr) {
-        return -1;
-    }
+    // if (this == nullptr) {
+    //     return -1;
+    // }
     end = new Node(input);
     if (count == 0) {
         head = end;
