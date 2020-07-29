@@ -68,6 +68,7 @@ void List :: printList() {
         node_ptr temp = head;
         for (int i = 0; i < count; i++) {
             cout << "List index: " << i + 1 << ", value = " << temp -> val << endl;
+            temp = temp -> next;
         }
     }
 }
