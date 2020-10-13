@@ -1,5 +1,3 @@
-import math
-
 A = [10, 16, 8, 12, 15, 6, 3, 9, 5]
 
 def partition(l,h):
